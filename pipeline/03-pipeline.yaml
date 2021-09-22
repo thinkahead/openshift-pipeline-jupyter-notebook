@@ -57,6 +57,8 @@ spec:
     - name: source
       workspace: shared-workspace
     params:
+    - name: manifest-dir
+      value: $(params.manifest-dir)
     - name: new-image
       value: $(params.image)
     - name: deployment-name
