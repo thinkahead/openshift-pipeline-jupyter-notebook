@@ -9,8 +9,8 @@ spec:
     name: build-and-deploy
   params:
   - name: repository
-    value: https://github.com/thinkahead/docker-stacks.git
-    #value: https://github.com/thinkahead/react-meme-generator-ts
+    value: https://github.com/thinkahead/openshift-pipeline-jupyter-notebook.git
+    #value: https://github.com/thinkahead/docker-stacks.git
   - name: context
     value: base-notebook
   - name: dockerfile
@@ -20,7 +20,6 @@ spec:
   - name: manifest-dir
     value: openshift
   - name: deployment-name
-    #value: meme-generator
     value: madi-pipeline
   workspaces:
   - name: shared-workspace
