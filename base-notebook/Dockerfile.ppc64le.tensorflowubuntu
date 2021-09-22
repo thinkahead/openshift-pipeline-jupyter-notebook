@@ -270,5 +270,5 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
 
 RUN ls -las /tmp
 USER $NB_UID
-
 WORKDIR $HOME
+COPY digits.ipynb .
