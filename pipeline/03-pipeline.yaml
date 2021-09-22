@@ -33,23 +33,23 @@ spec:
       value: ""
     - name: deleteExisting
       value: "true"
-  #- name: build-image
-  #  taskRef:
-  #    name: buildah
-  #  runAfter:
-  #  - fetch-repository
-  #  workspaces:
-  #  - name: source
-  #    workspace: shared-workspace
-  #  params:
-  #  - name: IMAGE
-  #    value: $(params.image)
-  #  - name: TLSVERIFY
-  #    value: "false"
-  #  - name: CONTEXT
-  #    value: $(params.context)
-  #  - name: DOCKERFILE
-  #    value: $(params.dockerfile)
+  - name: build-image
+    taskRef:
+      name: buildah
+    runAfter:
+    - fetch-repository
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: IMAGE
+      value: $(params.image)
+    - name: TLSVERIFY
+      value: "false"
+    - name: CONTEXT
+      value: $(params.context)
+    - name: DOCKERFILE
+      value: $(params.dockerfile)
   - name: deploy
     taskRef:
       name: oc-apply-deployment
@@ -64,5 +64,4 @@ spec:
     - name: deployment-name
       value: $(params.deployment-name) 
     runAfter:
-    - fetch-repository
-  #  - build-image
+    - build-image
