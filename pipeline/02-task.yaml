@@ -23,10 +23,10 @@ spec:
     command: ["/bin/bash", "-c"]
     args:
     - |-
-      echo sed -i 's/${APPLICATION_NAME}/$(params.deployment-name)/g' $(params.manifest-dir)/*
-      sed -i 's/${APPLICATION_NAME}/$(params.deployment-name)/g' $(params.manifest-dir)/*
-      echo sed -i 's/${IMAGE}/$(params.new-image)/g' $(params.manifest-dir)/*
-      sed -i 's/${IMAGE}/$(params.new-image)/g' $(params.manifest-dir)/*
+      echo sed -i \''s/${APPLICATION_NAME}/$(params.deployment-name)/g\'' $(params.manifest-dir)/*
+      sed -i \''s/${APPLICATION_NAME}/$(params.deployment-name)/g\'' $(params.manifest-dir)/*
+      echo sed -i 's|${IMAGE}|$(params.new-image)|g' $(params.manifest-dir)/*
+      sed -i 's|${IMAGE}|$(params.new-image)|g' $(params.manifest-dir)/*
       echo Applying manifests in $(params.manifest-dir) directory
       oc apply -f $(params.manifest-dir)
       echo -----------------------------------
