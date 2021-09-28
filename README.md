@@ -2,7 +2,8 @@
 
 ### Clone the repository and update the parameters
 ```
-git clone  https://github.com/thinkahead/openshift-pipeline-jupyter-notebook
+#cd /root/alexei/openshift-pipeline-jupyter-notebook
+git clone https://github.com/thinkahead/openshift-pipeline-jupyter-notebook
 cd openshift-pipeline-jupyter-notebook
 vi pipeline/04-pipelinerun.yaml # Edit the deployment name, image etc
 vi openshift/deploymentconfig.yaml # Edit the JUPYTER_NOTEBOOK_PASSWORD default test1234
