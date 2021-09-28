@@ -12,14 +12,17 @@ vi openshift/deploymentconfig.yaml # Edit the JUPYTER_NOTEBOOK_PASSWORD default 
 The build-and-deploy-run pipeline run will build the base image with the build-image (buildah) and deploy it with oc-apply-deployment task.
 ```
 oc apply -f pipeline/ -n alexei
-time tkn pr logs build-and-deploy-run -n alexei -f # 30 minutes
-```
+time tkn pr logs build-and-deploy-run -n alexei -f # 25 minutes
 
+NAME            HOST/PORT                                     PATH   SERVICES        PORT       TERMINATION     WILDCARD
+madi-pipeline   madi-pipeline-alexei.apps.ies.pbm.ihost.com          madi-pipeline   8888-tcp   edge/Redirect   None
+```
 ### Get the route
 Run the digits.ipynb notebook at the url from the route, password test1234.
 ```
 oc get routes
 ```
+Browse to http://madi-pipeline-alexei.apps.ies.pbm.ihost.com
 
 ### If there is an error, you can delete the pipeline run and redeploy
 ```
